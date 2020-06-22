@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Person</title>
+</head>
+<body>
+<div align="center">
+    <form action="#" th:action="@{/persons/create}" th:object="${person}" method="post">
+        <p>
+            <label for="name">Name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name">
+        </p>
+        <p>
+            <label for="login">Login</label>
+            <input type="text" th:field="*{login}" id="login" placeholder="Login">
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="text" th:field="*{email}" id="email" placeholder="Email">
+        </p>
+        <input type="submit" value="Create Person">
+        <div>
+            <p><a href="/persons">Back</a></p>
+        </div>
+    </form>
+</div>
+</body>
+</html>

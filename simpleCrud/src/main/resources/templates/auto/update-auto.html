@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta charset="UTF-8">
+<title>Person Editor</title>
+</head>
+<body>
+<div align="center">
+    <form action="#" th:action="@{/auto/update}" th:object="${auto}" method="post">
+        <p>
+            <label for="id">ID</label>
+            <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
+        </p>
+        <p>
+            <label for="name"> Name</label>
+            <input type="text" th:field="*{name}" id="name" placeholder="Name">
+        </p>
+        <p>
+            <label for="color">Color</label>
+            <input type="text" th:field="*{color}" id="color" placeholder="Color">
+        </p>
+        <p>
+            <label for="power">Power</label>
+            <input type="text" th:field="*{power}" id="power" placeholder="Power">
+        </p>
+        <input type="submit" value="Update Auto">
+        <div>
+            <p><a href="/auto">Back</a></p>
+        </div>
+    </form>
+</div>
+</body>
+</html>
