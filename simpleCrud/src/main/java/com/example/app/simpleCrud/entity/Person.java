@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name = "person", schema = "public")
 public class Person {
 
+
     public Person() {}
 
     @Id
@@ -15,9 +16,9 @@ public class Person {
     private int id;
 
     @OneToMany(fetch = FetchType.LAZY,
-               cascade = CascadeType.ALL,
-               mappedBy = "person",
-               orphanRemoval = true)
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "person")
     private List<Auto> auto;
 
     private String name;

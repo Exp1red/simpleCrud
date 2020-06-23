@@ -36,7 +36,6 @@ public class PersonController {
     }
 
 
-
     @GetMapping("/persons/update/{id}")
     public String updatePersonForm(@PathVariable("id") int id, Person person) {
         return "persons/update-persons";

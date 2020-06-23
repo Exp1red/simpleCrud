@@ -7,11 +7,12 @@ import javax.persistence.*;
 @Table(name = "auto", schema = "public")
 public class Auto {
 
-    public Auto (){}
+    public Auto() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auto_generator")
-    @SequenceGenerator(name="auto_generator", sequenceName = "auto_seq", allocationSize = 1)
+    @SequenceGenerator(name = "auto_generator", sequenceName = "auto_seq", allocationSize = 1)
     private int id;
 
     private String name;
@@ -19,16 +20,14 @@ public class Auto {
     private String power;
 
 
-
     @ManyToOne(cascade = {
             CascadeType.DETACH,
             CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH
-    },      fetch = FetchType.LAZY)
-    @JoinColumn (name = "person_id")
+    }, fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_id")
     private Person person;
-
 
 
     public int getId() {
