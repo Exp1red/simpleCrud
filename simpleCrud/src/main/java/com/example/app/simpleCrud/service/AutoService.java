@@ -1,35 +1,22 @@
 package com.example.app.simpleCrud.service;
 
+import com.example.app.simpleCrud.dto.AutoDto;
 import com.example.app.simpleCrud.entity.Auto;
-import com.example.app.simpleCrud.repository.AutoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AutoService {
+public interface AutoService {
 
-    private final AutoRepository autoRepository;
 
-    public AutoService(AutoRepository autoRepository) {
-        this.autoRepository = autoRepository;
-    }
+    List<Auto> findAll ();
 
-    public List<Auto> findAll (){
-        return autoRepository.findAll();
-    }
+    Auto findAutoById (int id);
 
-    public Auto findAutoById (int id){
-        return autoRepository.getOne(id);
-    }
+    void deleteAuto (int id);
 
-    public void deleteAuto (int id){
-        autoRepository.deleteById(id);
-    }
-
-    public void saveAuto (Auto auto){
-        autoRepository.save(auto);
-    }
+    void saveAuto (AutoDto autoDto);
 
 
 }

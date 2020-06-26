@@ -1,29 +1,19 @@
-package com.example.app.simpleCrud.entity;
+package com.example.app.simpleCrud.dto;
 
-import javax.persistence.*;
+public class AutoDto {
 
-
-@Entity
-@Table(name = "auto", schema = "public")
-public class Auto {
-
-    public Auto() {
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "auto_generator")
-    @SequenceGenerator(name = "auto_generator", sequenceName = "auto_seq", allocationSize = 1)
     private int id;
-
     private String name;
     private String color;
     private String power;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "person_id")
-    private Person person;
-
+    public AutoDto(int id, String name, String color, String power) {
+        this.id = id;
+        this.name = name;
+        this.color = color;
+        this.power = power;
+    }
 
     public int getId() {
         return id;
@@ -55,13 +45,5 @@ public class Auto {
 
     public void setPower(String power) {
         this.power = power;
-    }
-
-    public Person getPerson() {
-        return person;
-    }
-
-    public void setPerson(Person person) {
-        this.person = person;
     }
 }

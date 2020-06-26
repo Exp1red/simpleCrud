@@ -1,37 +1,20 @@
 package com.example.app.simpleCrud.service;
 
+import com.example.app.simpleCrud.dto.PersonDto;
 import com.example.app.simpleCrud.entity.Person;
-import com.example.app.simpleCrud.repository.AutoRepository;
-import com.example.app.simpleCrud.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PersonService {
+public interface PersonService {
 
-    private final AutoRepository autoRepository;
-    private final PersonRepository personRepository;
+     Person findPersonById(int id);
 
-    public PersonService(AutoRepository autoRepository, PersonRepository personRepository) {
-        this.autoRepository = autoRepository;
-        this.personRepository = personRepository;
-    }
+     List<Person> findAll ();
 
-    public Person findPersonById(int id){
-        return personRepository.getOne(id);
-    }
+     void savePerson (PersonDto person);
 
-    public List<Person> findAll (){
-        return personRepository.findAll();
-    }
-
-    public void savePerson (Person person){
-        personRepository.save(person);
-    }
-
-    public void deletePerson (int id){
-        personRepository.deleteById(id);
-    }
+     void deletePerson (int id);
 
 }
